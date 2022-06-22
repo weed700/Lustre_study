@@ -210,3 +210,6 @@ ex) 아래 명령어는/testfs/largedir MDT0000에 있는 내용을 MDT0001 및 
 * https://wiki.lustre.org/images/b/b3/LUG2019-Lustre_Overstriping_Shared_Write_Performance-Farrell.pdf
 * https://jira.whamcloud.com/browse/LUDOC-385
 * https://wiki.lustre.org/images/c/c5/LUG2018-Small_File_IO_Perf_DataOnMDT-Gmitter.pdf
+* https://wiki.whamcloud.com/display/PUB/DNE+1+Remote+Directories+High+Level+Design
+* https://wiki.whamcloud.com/display/PUB/Remote+Directories+Solution+Architecture
+* https://jira.whamcloud.com/browse/LU-1187?jql=text%20~%20%22DNE%22
