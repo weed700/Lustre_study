@@ -5,8 +5,8 @@ date:       2022-06-xx
 author:     권세훈 (qsh700@gluesys.com)
 categories: blog
 tags:       [Lustre, HPC, RDMA, Storage]
-cover:      "/assets/[maincover image] "
-main:       "/assets/[maincover image] "
+cover:      "/assets/lustre_maincover.jpg"
+main:       "/assets/lustre_maincover.jpg"
 ---
 
 # Lustre File System 소개
