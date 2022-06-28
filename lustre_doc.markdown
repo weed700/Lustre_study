@@ -182,9 +182,9 @@ test2_domfile
 
 &nbsp;
 
-`HPC` 시스템은 일상적으로 수많은 클라이언트로 `Lustre`를 구성합니다. 이렇듯 클라이언트가 확장되었을 때 `MDT`도 추가되어야합니다. `DNE`는 `MDT`가 추가되었을 때 분배하는 방법에대해 말하고 있습니다. 
+`HPC` 시스템은 일상적으로 수많은 클라이언트로 `Lustre`를 구성합니다. 이렇듯 클라이언트가 확장되었을 때 `MDT`도 추가로 확장 되어야합니다. `DNE`는 `MDT`가 추가되었을 때 분배하는 방법에 대해 말하고 있습니다. 
 
-`lustre` version 2.4에서는 볼륨의 각 디렉터리 마다 `MDT`를 정해서 동시에 사용하는 구조 였지만, version 2.7 이 후에는 Single Directory환경에서 여러개의 Multiple MDT를 분산 형태로 사용할 수 있도록 변경되었습니다. 이를 `Lustre`에서는 단계별로 표현을 하고 있습니다. 1단계 Remote directories에서 `Lustre` 하위 디렉터리는 여러 `MDT`에 배포됩니다. 하위 디렉토리 배포는 관리자가 `Lustre`관련 `mkdir` 명령을 사용하여 정의합니다. 2단계 striped directories는 여러 `MDT`로 스트라이프된 디렉터리를 통해 `MDT`로 분배되어 저장됩니다. 이렇게 하면 단일 디렉터리 내에서 메타데이터 처리량을 확장할 수 있습니다.
+`lustre` version 2.4에서는 볼륨의 각 디렉터리 마다 `MDT`를 정해서 동시에 사용하는 구조 였지만, 버전 2.7 이 후에는 Single Directory환경에서 여러개의 Multiple MDT를 분산 형태로 사용할 수 있도록 변경되었습니다. 이를 `Lustre`에서는 단계별로 표현을 하고 있습니다. 1단계 Remote directories에서 `Lustre` 하위 디렉터리는 여러 `MDT`에 배포됩니다. 하위 디렉토리 배포는 관리자가 `Lustre`관련 `mkdir` 명령을 사용하여 정의합니다. 2단계 striped directories는 여러 `MDT`로 스트라이프된 디렉터리를 통해 `MDT`로 분배되어 저장됩니다. 이렇게 하면 단일 디렉터리 내에서 메타데이터 처리량을 확장할 수 있습니다.
 
 `DNE` 시스템에서 `MDT`는 시간이 지남에 따라 불균형해질 수 있으며 사용자는 `MDT`를 추가/제거할 수 있습니다. `DNE`에서 restriping은 로드를 한 `MDT`에서 다른 `MDT`로 이동할때 사용됩니다. 
 
@@ -196,6 +196,9 @@ ex) 아래 명령어는/testfs/largedir MDT0000에 있는 내용을 MDT0001 및 
 [root@Client ~]# lfs migrate -m 1,3 /tetstfs/largedir
 ```
 
+## 마치며
+
+이번 포스팅에서는 lustre가 무엇인지 또한 어떤 기능을 가지고 있는지에 대해 간략하게 알아보았습니다. 다음 시간에서는 lustre FS을 구성하는 실습과 구성 후 각 기능을 이용한 테스트 및 성능 측정을 해보도록 하겠습니다. 부족한 글 읽어주셔서 감사합니다.
 
 참고
 ---
