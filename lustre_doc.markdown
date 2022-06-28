@@ -22,7 +22,7 @@ High Performance Computing(HPC) 클러스터는 대규모 애플리케이션에 
 
 # Lustre FS Architecture
 ![Lustre FS Architecture](/assets/Lustre_Architecture.PNG)
-<center>그림 1. Lustre Architecture</center>
+<center>그림 1. Lustre Architecture </center>
 
 &nbsp;
 
@@ -63,7 +63,7 @@ High Performance Computing(HPC) 클러스터는 대규모 애플리케이션에 
 * HSM Architecture
 
 ![HSM](/assets/HSM_Architecture.png)
-<center>그림 2. HSM Architecture</center>
+<center>그림 2. HSM Architecture </center>
 
 &nbsp;
 
@@ -83,7 +83,7 @@ High Performance Computing(HPC) 클러스터는 대규모 애플리케이션에 
 ## PCC(Persistent Client Cache)
 
 ![pcc](/assets/PCC_Architecture.png)
-<center>그림 3. Persistent Client Cache</center>
+<center>그림 3. Persistent Client Cache </center>
 
 &nbsp;
 
@@ -203,6 +203,7 @@ ex) 아래 명령어는/testfs/largedir MDT0000에 있는 내용을 MDT0001 및 
 참고
 ---
 
+* https://wiki.lustre.org/Introduction_to_Lustre
 * https://wiki.whamcloud.com/display/PUB/Why+Use+Lustre
 * https://wiki.lustre.org/Main_Page
 * https://jaynamm.tistory.com/entry/Lustre-File-System
