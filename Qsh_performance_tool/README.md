@@ -1,7 +1,7 @@
 ## lustre performace tool user guide
 
 1. config 파일 설정
-* 압축 해제한 디렉터리 들어가기
+ * 압축 해제한 디렉터리 들어가기
  * Config 디렉터리 들어가기
  * ./config.sh 실행
  * 공통으로 필요한 값 입력 ( ip, type, backfstype, fsname)
