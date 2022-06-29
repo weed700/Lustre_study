@@ -1,7 +1,6 @@
 ## lustre performace tool user guide
 
-* config 파일 설정
-
+1. config 파일 설정
  * 압축 해제한 디렉터리 들어가기
  * Config 디렉터리 들어가기
  * ./config.sh 실행
