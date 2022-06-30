@@ -20,6 +20,8 @@ High Performance Computing(HPC) 클러스터는 대규모 애플리케이션에 
 
 러스터는 `Linux` 기반 운영체제에서 실행되며 클라이언트(Client)-서버(Server) 네트워크 아키텍처를 사용합니다.
 
+&nbsp;
+
 # Lustre FS Architecture
 ![Lustre FS Architecture](/assets/Lustre_Architecture.PNG)
 <center>그림 1. Lustre Architecture </center>
@@ -52,8 +54,10 @@ High Performance Computing(HPC) 클러스터는 대규모 애플리케이션에 
 * LNet(Lustre Networking)
   * 클라이언트가 파일 시스템에 액세스하는데 사용하는 고속 데이터 네트워크 프로토콜입니다.
 
-# Lustre FS 특징 및 기능
+&nbsp;
 
+# Lustre FS 특징 및 기능
+&nbsp;
 ## HSM(Hierarchical Storage Management)
 
 `HSM`은 고가의 저장매체와 저가의 저장매체 간의 데이터를 자동으로 이동하는 데이터 저장 기술입니다.
@@ -80,6 +84,8 @@ High Performance Computing(HPC) 클러스터는 대규모 애플리케이션에 
   * remove : `HSM` 솔루션에서 데이터 사본을 삭제합니다.
   * cancel : 진행 중이거나 보류 중인 요청을 삭제합니다.
 
+&nbsp;
+
 ## PCC(Persistent Client Cache)
 
 ![pcc](/assets/PCC_Architecture.png)
@@ -95,6 +101,7 @@ High Performance Computing(HPC) 클러스터는 대규모 애플리케이션에 
  
 클라이언트에서 로컬 저장장치를 캐시로 이용하게 되면 네트워크 지연이 없고 다른 클라이언트에 대한 오버헤드가 없습니다. 또한, 로컬 저장장치를 I/O 속도가 빠른 `SSD` or `NVMe SSD`를 통해 좋은 성능을 낼 수 있습니다. `SSD`는 모든 종류의 `SSD`가 사용가능하며, 캐시 장치로 이용할 수 있습니다. `PCC`를 통해 작거나 임의의 I/O를 `OST`로 저장할 필요 없이 로컬 캐시 장치에 저장하여 사용하면 `OST`용량의 부담을 줄일 수 있는 장점이 있습니다.
 
+&nbsp;
 
 ## OverStriping
 
@@ -120,6 +127,8 @@ High Performance Computing(HPC) 클러스터는 대규모 애플리케이션에 
 
 ![Overstriping Performance](/assets/overstriping_이점.PNG)
 <center>그림 5. overstriping Performance</center>
+
+&nbsp;
 
 ## DOM(Data-On-MDT)
 
@@ -175,6 +184,8 @@ test2_domfile
       lmm_stripe_offset: -1
 ```
 
+&nbsp;
+
 ## DNE(Distributed Namespace Environment)
 
 ![DNE](/assets/DNE.PNG)
@@ -196,6 +207,8 @@ ex) 아래 명령어는/testfs/largedir MDT0000에 있는 내용을 MDT0001 및 
 [root@Client ~]# lfs migrate -m 1,3 /tetstfs/largedir
 ```
 
+&nbsp;
+
 # GPU Direct 스토리지 기술
 
 ![GPU Direct Storage](/assets/GPU_Direct_Storage.PNG)
@@ -204,8 +217,14 @@ ex) 아래 명령어는/testfs/largedir MDT0000에 있는 내용을 MDT0001 및 
 &nbsp;
 
 오늘날 많은 연산을 사용하는 `빅데이터/AI` 분석을 가속화를 위해 `GPU Direct 스토리지` 기술이 등장하였습니다. 
-`빅데이터/AI`에서는 많은양의 데이터를 분석해야하고, 이를 위해 데이터를 로드해야합니다. 이때, 소요되는 시간이 애플리케이션 성능에 영향을 미칠 수 있습니다. 이를 위해 `GPU Direct 스토리지`는 `NVMe or NVMe over Fabrics(NVMe-oF)`와 같은 로컬 또는 원격 스토리지와 GPU 메모리 사이에 데이터 경로를 생성합니다. 네트워크 어댑터 또는 스토리지와 가까운 `DMA(Direct Memory Access)`엔진을 활성화하여 CPU에 부담을 주지 않고 `GPU` 메모리로 데이터를 이동하는 기술입니다.
-`GPU Direct 스토리지` 기술을 `lustre`에서도 이번에 출시된 버전 2.15.0에서 지원합니다(https://wiki.lustre.org/Lustre_2.15.0_Changelog).
+`빅데이터/AI`에서는 많은양의 데이터를 분석해야하고, 이를 위해 데이터를 로드해야합니다. 이때, 소요되는 시간이 애플리케이션 성능에 영향을 미칠 수 있습니다. 이를 위해 `GPU Direct 스토리지`는 `NVMe or NVMe over Fabrics(NVMe-oF)`와 같은 로컬 또는 원격 스토리지와 `GPU` 메모리 사이에 데이터 경로를 생성합니다. 네트워크 어댑터 또는 스토리지와 가까운 `DMA(Direct Memory Access)`엔진을 활성화하여 CPU에 부담을 주지 않고 `GPU` 메모리로 데이터를 이동하는 기술입니다.
+
+**GPU Direct 스토리지 기술을 lustre에서도 이번에 출시된 버전 2.15.0에서 지원한다고 합니다**(https://wiki.lustre.org/Lustre_2.15.0_Changelog).
+
+* NVMe 이전 블러그 참고 : https://tech.gluesys.com/blog/2021/03/03/NVMe_1.html
+* DMA : https://en.wikipedia.org/wiki/Direct_memory_access
+
+&nbsp;
 
 ## GPU Direct 스토리지 이점
 
@@ -215,10 +234,11 @@ ex) 아래 명령어는/testfs/largedir MDT0000에 있는 내용을 MDT0001 및 
   * `CPU` 및 메모리 유효율 증가
   * 클라우드 리소스 활용성 최적화
 
+&nbsp;
 
-## 마치며
+# 마치며
 
-이번 포스팅에서는 lustre가 무엇인지 또한 어떤 기능을 가지고 있는지에 대해 간략하게 알아보았습니다. 다음 시간에서는 lustre FS을 구성하는 실습과 구성 후 각 기능을 이용한 테스트 및 성능 측정을 해보도록 하겠습니다. 감사합니다~👍
+이번 포스팅에서는 lustre가 무엇인지 또한 어떤 기능을 가지고 있는지와 GPU Direct Storage에 대해 간략하게 알아보았습니다. 다음 시간에서는 lustre FS을 구성하는 실습과 구성 후 각 기능을 이용한 테스트 및 성능 측정을 해보도록 하겠습니다. 감사합니다~👍
 
 참고
 ---
