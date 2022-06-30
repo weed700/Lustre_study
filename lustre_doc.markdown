@@ -126,7 +126,7 @@ High Performance Computing(HPC) 클러스터는 대규모 애플리케이션에 
 ```
 * Overstriping 이점
 
-![Overstriping Performance](/assets/overstriping_이점.PNG)
+![Overstriping Performance](/assets/overstriping2.PNG)
 <center>그림 5. overstriping Performance</center>
 
 &nbsp;
