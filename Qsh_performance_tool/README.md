@@ -13,5 +13,8 @@
  * 한개의 벤치마크 툴이 끝나고 변경하려면 클라이언트 .ini 파일을 열어값을 변경해줍니다.(ini 파일명은 [hostname].[몇번째 client인지에 대한 번호]_client_Config_Qsh.ini)
 
 ### 툴 실행
- * config 파일을 다 설정했으면 다시 이전 디렉터리로 돌아가서 ./Benchmark_Qsh.sh을 실행 시킨다
- * 위과정이 실행되면 lustre mount ~ benchmark test ~ umount 까지 동작된다.  
+ * config 파일을 다 설정했으면 다시 이전 디렉터리로 돌아가서 ./Benchmark_Qsh.sh을 실행 시킵니다.
+ * 위과정이 실행되면 lustre mount ~ benchmark test ~ umount 까지 동작됩니다. 
+
+### 주의 할점
+ * 각 서버는 ssh로 연결 가능해야하며, 비밀번호 없이 연결되어야 합니다. 
