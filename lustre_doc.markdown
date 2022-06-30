@@ -1,10 +1,10 @@
 ---
 layout:     post
-title:      "Lustre에 대해 : 개요 및 특징"
+title:      "Lustre File System과 GPU Direct Storage 소개"
 date:       2022-06-30
 author:     권세훈 (qsh700@gluesys.com)
 categories: blog
-tags:       [Lustre, HPC, RDMA, Storage]
+tags:       [Lustre, HPC, RDMA, Storage, GPU Direct Storage]
 cover:      "/assets/lustre_maincover.jpg"
 main:       "/assets/lustre_maincover.jpg"
 ---
@@ -201,18 +201,18 @@ ex) 아래 명령어는/testfs/largedir MDT0000에 있는 내용을 MDT0001 및 
 ![GPU Direct Storage](/assets/GPU Direct.PNG)
 <center>그림 8. GPU Direct Storage</center>
 
-오늘날 많은 연산을 사용하는 빅데이터/AI 분석을 가속화를 위해 GPU Direct 스토리지 기술이 등장하였습니다. 
-빅데이터/AI에서는 많은 양의 데이터를 로드해야합니다. 이때, 소요되는 시간이 애플리케이션 성능에 영향을 미칠 수 있습니다. 
-GPU Direct 스토리지는 NVMe or NVMe over Fabrics(NVMe-oF)와 같은 로컬 또는 원격 스토리지와 GPU 메모리 사이에 데이터 경로를 생성합니다. 
-네트워크 어댑터 또는 스토리지 근처에서 DMA(Direct Memory Access)엔진을 활성화하여 CPU에 부담을 주지 않고 GPU 메모리로 데이터를 이동하는 기술입니다.
-GPU Direct 스토리지 기술을 lustre에서도 이번에 출시된 버전 2.15.0에서 지원합니다(https://wiki.lustre.org/Lustre_2.15.0_Changelog).
+&nbsp;
+
+오늘날 많은 연산을 사용하는 `빅데이터/AI` 분석을 가속화를 위해 `GPU Direct 스토리지` 기술이 등장하였습니다. 
+`빅데이터/AI`에서는 많은양의 데이터를 분석해야하고, 이를 위해 데이터를 로드해야합니다. 이때, 소요되는 시간이 애플리케이션 성능에 영향을 미칠 수 있습니다. 이를 위해 `GPU Direct 스토리지`는 `NVMe or NVMe over Fabrics(NVMe-oF)`와 같은 로컬 또는 원격 스토리지와 GPU 메모리 사이에 데이터 경로를 생성합니다. 네트워크 어댑터 또는 스토리지와 가까운 `DMA(Direct Memory Access)`엔진을 활성화하여 CPU에 부담을 주지 않고 `GPU` 메모리로 데이터를 이동하는 기술입니다.
+`GPU Direct 스토리지` 기술을 `lustre`에서도 이번에 출시된 버전 2.15.0에서 지원합니다(https://wiki.lustre.org/Lustre_2.15.0_Changelog).
 
 ## GPU Direct 스토리지 이점
 
-* GPU 기반 분석 어플리케이션의 병렬 스토리지 입출력 오버헤드를 최소화 하여 분석 시간을 획기적으로 단축할 수 있습니다.
-  * GPU 연산 대기 시간 감소와 PCI 대역폭 최대 활용
+* `GPU` 기반 분석 어플리케이션의 병렬 스토리지 입출력 오버헤드를 최소화 하여 분석 시간을 획기적으로 단축할 수 있습니다.
+  * `GPU` 연산 대기 시간 감소와 `PCI` 대역폭 최대 활용
   * 분석 시간 최소화
-  * CPU 및 메모리 유효율 증가
+  * `CPU` 및 메모리 유효율 증가
   * 클라우드 리소스 활용성 최적화
 
 
@@ -237,3 +237,4 @@ GPU Direct 스토리지 기술을 lustre에서도 이번에 출시된 버전 2.1
 * https://wiki.whamcloud.com/display/PUB/DNE+1+Remote+Directories+High+Level+Design
 * https://wiki.whamcloud.com/display/PUB/Remote+Directories+Solution+Architecture
 * https://jira.whamcloud.com/browse/LU-1187?jql=text%20~%20%22DNE%22
+* https://developer.nvidia.com/gpudirect-storage
