@@ -198,7 +198,7 @@ ex) 아래 명령어는/testfs/largedir MDT0000에 있는 내용을 MDT0001 및 
 
 # GPU Direct 스토리지 기술
 
-![GPU Direct Storage](/assets/GPU Direct.PNG)
+![GPU Direct Storage](/assets/GPU_Direct_Storage.PNG)
 <center>그림 8. GPU Direct Storage</center>
 
 &nbsp;
