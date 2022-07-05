@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-07-05T02:05:51.064Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36" etag="j-Vh_lzvOmqWfsyJfSta" version="20.0.4" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2022-07-05T07:51:59.198Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36" etag="CV6cU1OUVDRUGzcTXo-C" version="20.0.4" type="github" pages="3">
   <diagram name="Lustre" id="M7yLaQcp8DG9QWbYyY-x">
     <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -319,8 +319,8 @@
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="790" y="140" as="sourcePoint" />
             <Array as="points">
-              <mxPoint x="925" y="260" />
-              <mxPoint x="777" y="260" />
+              <mxPoint x="925" y="270" />
+              <mxPoint x="777" y="270" />
             </Array>
           </mxGeometry>
         </mxCell>
