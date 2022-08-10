@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-08-09T07:31:04.780Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="PJTLocrikid889casKIE" version="20.2.2" type="github" pages="6">
+<mxfile host="app.diagrams.net" modified="2022-08-10T06:05:20.895Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="g3bIDf4RH9voiI6OOtVh" version="20.2.2" type="github" pages="6">
   <diagram name="Lustre" id="M7yLaQcp8DG9QWbYyY-x">
-    <mxGraphModel dx="1662" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="Ua6ocKQZ1BY9bdP9Vu75-0" />
         <mxCell id="Ua6ocKQZ1BY9bdP9Vu75-1" parent="Ua6ocKQZ1BY9bdP9Vu75-0" />
@@ -808,7 +808,7 @@
         <mxCell id="CKTwXzqAEdzDFaEWJaUo-2" value="" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=9;fontSize=15;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="yyE-OkmAEmlNrER1gE_N-1">
           <mxGeometry x="360.56" y="1020" width="30" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="CKTwXzqAEdzDFaEWJaUo-11" value="Lower Disk Pool(NVMe SSDs)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="yyE-OkmAEmlNrER1gE_N-1">
+        <mxCell id="CKTwXzqAEdzDFaEWJaUo-11" value="High Disk Pool(NVMe SSDs)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="yyE-OkmAEmlNrER1gE_N-1">
           <mxGeometry x="231.18" y="980" width="208.75" height="30" as="geometry" />
         </mxCell>
         <mxCell id="CKTwXzqAEdzDFaEWJaUo-12" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="yyE-OkmAEmlNrER1gE_N-1">
