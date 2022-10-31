@@ -24,6 +24,7 @@ server_conf="/server_Config_Qsh.ini"
 server_conf_file=${CURRENT_PATH}/$CONFIG_DIR$server_conf
 config_ini=$(awk '/^CONF/{print $3}' ${server_conf_file})
 client_ini=$(awk '/^CONF_CLIENT/{print $3}' ${server_conf_file})
+oss_ini=$(awk '/^CONF_OSS/{print $3}' ${server_conf_file}) 
 all_hostname=$(awk '/^HOST_NAME/{print $3}' ${server_conf_file}) 
 
 org="Config_Qsh.ini"
@@ -80,10 +81,26 @@ do
     do
         hostname=$(echo $hs | awk -F . '{print $1}')
 
-        ssh root@$hostname "mkdir -p $CURRENT_PATH${log}/${tool_name}_$date; iostat -mtx 10 > $CURRENT_PATH${log}/${tool_name}_${date}/iostat.log &"
+        ssh root@$hostname "mkdir -p $CURRENT_PATH${log}/${tool_name}_$date; iostat -mtx 10 > $CURRENT_PATH${log}/${tool_name}_${date}/${hostname}_${tool_name}_iostat.log &"
     done
 
     echo ""
+
+    # test type stripe
+    if [ "stripe" == "$test_type" ]; then
+        echo "stripe..."
+        num=0
+        for i in ${oss_ini[*]} ;do num=`expr $num + 1`; done
+        ssh root@$client_hostname "lfs setstripe --stripe-count $num $client_path$test_path; lfs getstripe $client_path$test_path"
+    fi
+    
+    # test type DoM
+    if [ "dom" == "$test_type" ]; then
+        echo "DoM..."
+        ssh root@$client_hostname "lfs setstripe -E 1M -L mdt -E -1 $client_path$test_path; lfs getstripe $client_path$test_path"
+    fi
+
+    if [ "normal" == "$test_type"  ]; then echo "normal..."; fi
 
     # Benchmark exec
     echo "--- " ${tool_name} testing...
@@ -141,7 +158,24 @@ do
 done
 
 
-for all_ini in ${config_ini[*]}
+array=()
+arr=()
+
+# array change
+for temp in ${config_ini[*]}
+do
+    array+=($temp);
+done
+
+# array reverse
+n=$((${#array[*]}-1))
+
+for ((i=$n; i >=0; i--));
+do
+    arr+=(${array[$i]})
+done
+
+for all_ini in ${arr[*]}
 do
     echo "--- umount..."
     hostname=$(echo $all_ini | awk -F . '{print $1}')
