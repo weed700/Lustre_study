@@ -11,7 +11,7 @@
 
 * 러스터 파일시스템 아키텍처[^1]
 
-![Lustre FS Architecture](/assets/Lustre_Architecture.PNG)
+![Lustre FS Architecture](/Lustre_doc/assets/Lustre_Architecture.PNG)
 <center>그림 1. 러스터 파일시스템 아키텍처 </center>
 
 &nbsp;
@@ -148,7 +148,7 @@ mount -t lustre 100.100.100.104@o2ib0:/lustre /mnt/client_lustre
 
 * HSM 아키텍처[^2]
 
-![HSM](/assets/HSM_Architecture.png)
+![HSM](/Lustre_doc/assets/HSM_Architecture.png)
 <center>그림 2. HSM 아키텍처 </center>
 
 &nbsp;
@@ -172,7 +172,7 @@ mount -t lustre 100.100.100.104@o2ib0:/lustre /mnt/client_lustre
 
 * PCC 아키텍처[^3]
 
-![pcc](/assets/PCC_Architecture.png)
+![pcc](/Lustre_doc/assets/PCC_Architecture.png)
 <center>그림 3. Persistent Client Cache </center>
 
 &nbsp;
@@ -218,7 +218,7 @@ DoM은 두 가지 구성요소가 있습니다. 첫 번째는 `MDT` 컴포넌트
 
 #### DoM 구성 예시[^6]
 
-![DoM](/assets/DoM.PNG)
+![DoM](/Lustre_doc/assets/DoM.PNG)
 <center>그림 6. Data-On-MDT </center>
 
 &nbsp;
