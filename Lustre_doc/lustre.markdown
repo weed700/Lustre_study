@@ -1,4 +1,4 @@
-# Lustre 파일시스템과 GPUDirect Storage 소개
+# Lustre 파일시스템
 
 &nbsp;
 # 러스터 파일시스템
@@ -77,7 +77,7 @@
 
 ```console
 // MGS 설정과 MGT를 생성합니다. 
-# mkfs.lustre --mgs --backfstype=zfs --mgsnode=100.100.100.104@o2ib --fsname=lustre --reformat mgspool/mgt /dev/sdb
+# mkfs.lustre --mgs --backfstype=zfs --fsname=lustre --reformat mgspool/mgt /dev/sdb
 
 // MDT를 생성합니다.
 # mkfs.lustre --mdt --backfstype=zfs --index=0 --mgsnode=100.100.100.104@o2ib --fsname=lustre --reformat lustre-mdt0/mdt0 /dev/sdc
