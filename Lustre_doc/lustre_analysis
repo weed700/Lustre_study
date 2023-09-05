@@ -22,3 +22,27 @@ Sep 05 15:40:21 ExaStor2-A kernel: Lustre: cluster1-OST0001: Recovery over after
 Sep 05 15:40:21 ExaStor2-A kernel: Lustre: cluster1-OST0001: deleting orphan objects from 0x0:224094 to 0x0:225665
 </pre>
 
+h3. 알아야 할 점
+
+* lustre agent가 붙은 곳은 타겟들의 클라이언트가 있다고 생각됨. 여기서 타겟 클라이언트와 lustre agent 클라이언트 구분을 해야함.
+* target 클라이언트는 예를 들어 OST0의 클라이언트는 OSC가 되고 이는 각 lustre agent가 붙은 곳에 한개씩 존재 한다고 생각됨.
+
+h3. 먼저 다음 메시지에서 client 개수와 recovered, evicted 개수의 의미를 파악
+
+<pre>cluster1-OST0001: Recovery over after 2:40, of 4 clients 3 recovered and 1 was evicted.</pre>
+
+ * static void target_finish_recovery(struct lu_target *lut)
+<pre>
+        LCONSOLE_INFO("%s: Recovery over after %lld:%.02lld, of %d clients %d recovered and %d %s evicted.\n",
+                  obd->obd_name, elapsed_time / 60,
+                  elapsed_time % 60,
+                  atomic_read(&obd->obd_max_recoverable_clients),
+                  atomic_read(&obd->obd_connected_clients),
+                  obd->obd_stale_clients,
+                  obd->obd_stale_clients == 1 ? "was" : "were");
+</pre>
+ * 위 코드에서 atomic_read()함수를 통해 obd_max_recoverable_clients, obd_connected_clients 개수를 읽어와서 사용하는 것을 확인.
+ * obd_max_recoverable_clients 변수의 값을 어디서 증가시키는지 확인 결과 tgt_init() -> tgt_server_data_init() -> tgt_clients_data_init() 에서 증가시키는 atomic_inc를 확인
+ * obd_connected_clients
+
+
