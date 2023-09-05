@@ -1,0 +1,24 @@
+h2. Lustre umount vs umount -f 에 대하여...
+
+h3. 환경
+
+* 2노드 D.C로 구성(1,2번 노드) : 모든 컨트롤러에 local lustre agent가 마운트됨 즉, 총 클라이언트 개수는 4개가 됨.
+ * 1-A에는 MGT,MDT
+ * 1-B에는 lustre agent만 존재
+ * 2-A에는 OST0
+ * 2-B에는 OST1
+
+h3. 문제
+
+* 2-B에 있는 LNet을 모두 절체 시 OST1은 2-A로 failover됨. 이 때 local에 있는 lustre agent들이 강제로 마운트 해제(umount -f)되면 아래와 같은 오류가 뜨면서 오랜 시간을 기다릴 수 있음.
+<pre>
+Sep 05 15:37:27 ExaStor2-A kernel: Lustre: cluster1-OST0001: Imperative Recovery enabled, recovery window shrunk from 300-900 down to 150-900
+Sep 05 15:37:28 ExaStor2-A kernel: Lustre: cluster1-OST0001: in recovery but waiting for the first client to connect
+Sep 05 15:37:42 ExaStor2-A kernel: Lustre: cluster1-OST0001: Will be in recovery for at least 2:30, or until 4 clients reconnect
+Sep 05 15:40:07 ExaStor2-A kernel: Lustre: cluster1-OST0001: Denying connection for new client ecfcc9ac-4abc-41da-ad57-7ec5d6c7f8e7 (at 100.100.1.103@o2ib), waiting for 4 known clients (3 recovered, 0 in progress, and 0 evicted) to recover in 0:14
+Sep 05 15:40:21 ExaStor2-A kernel: Lustre: cluster1-OST0001: recovery is timed out, evict stale exports
+Sep 05 15:40:21 ExaStor2-A kernel: Lustre: cluster1-OST0001: disconnecting 1 stale clients
+Sep 05 15:40:21 ExaStor2-A kernel: Lustre: cluster1-OST0001: Recovery over after 2:40, of 4 clients 3 recovered and 1 was evicted.
+Sep 05 15:40:21 ExaStor2-A kernel: Lustre: cluster1-OST0001: deleting orphan objects from 0x0:224094 to 0x0:225665
+</pre>
+
